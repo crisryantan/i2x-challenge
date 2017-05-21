@@ -1,4 +1,3 @@
-import { browserHistory } from 'react-router';
 import axios from 'axios';
 
 function parseJSON ( response ) {
@@ -22,6 +21,12 @@ function handleError ( response ) {
 
 export function getRequest ( url ) {
   return axios.get( url )
+      .then( parseJSON )
+      .catch( handleError );
+}
+
+export function postRequest ( url, payload ) {
+  return axios.post( url, payload )
       .then( parseJSON )
       .catch( handleError );
 }

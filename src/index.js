@@ -5,6 +5,7 @@ import { Router, Route, browserHistory } from 'react-router';
 import configureStore from './store';
 
 import App from './containers/App';
+import Login from './containers/Login';
 
 import './global.css';
 
@@ -15,7 +16,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
         <Route path="/" component={App}>
-
+            <Route path="login" component={Login} />
         </Route>
     </Router>
   </Provider>,
