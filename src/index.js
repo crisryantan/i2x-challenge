@@ -15,7 +15,7 @@ import { authUser } from './containers/App/actions';
 import './global.css';
 
 const initialState = {};
-const store        = configureStore( initialState );
+export const store = configureStore( initialState );
 
 if ( localStorage.getItem( 'token' ) ) {
   store.dispatch( authUser() );

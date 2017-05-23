@@ -1,5 +1,6 @@
 import {
-  AUTH_USER
+  AUTH_USER,
+  UNAUTH_USER
 } from './constants';
 import { setAuthorizationToken } from '../../utils/request';
 
@@ -7,5 +8,12 @@ export function authUser () {
   setAuthorizationToken( localStorage.getItem( 'token' ) );
   return {
     type : AUTH_USER
+  };
+}
+
+export function unAuthUser () {
+ localStorage.removeItem( 'token' );
+  return {
+    type : UNAUTH_USER
   };
 }

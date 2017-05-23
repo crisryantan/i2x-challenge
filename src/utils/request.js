@@ -11,7 +11,7 @@ function handleError ( response ) {
   // if request throws 401 unauthorized
   // it is assumed that the user is now using an expired token
   if ( err.response.status === 401 ) {
-      localStorage.removeItem( 'sessionToken' );
+      localStorage.removeItem( 'token' );
       setAuthorizationToken();
   }
 
@@ -33,7 +33,7 @@ export function postRequest ( url, payload ) {
 
 export function setAuthorizationToken ( token ) {
   if ( token ) {
-      axios.defaults.headers.common.Authorization = token;
+      axios.defaults.headers.common.Authorization = `JWT ${ token }`;
   } else {
       delete axios.defaults.headers.common.Authorization;
   }

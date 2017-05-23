@@ -1,4 +1,4 @@
-import { postRequest, setAuthorizationToken } from '../../utils/request';
+import { postRequest } from '../../utils/request';
 import { browserHistory } from 'react-router';
 import { authUser } from '../App/actions';
 import {
@@ -10,7 +10,7 @@ const loginApi = 'https://i2x-challenge.herokuapp.com/core/login/';
 
 export function loginUser ( user ) {
   return dispatch => {
-    dispatch( loginSubmit() );
+    dispatch( { type : LOGIN_SUBMIT } );
     return postRequest( loginApi, user )
       .then( ( { token } ) => {
           localStorage.setItem( 'token', token );
@@ -21,12 +21,6 @@ export function loginUser ( user ) {
         dispatch( loginError( err.non_field_errors[ 0 ] ) )
       } );
   }
-}
-
-export function loginSubmit () {
-  return {
-    type : LOGIN_SUBMIT
-  };
 }
 
 export function loginError ( err ) {
