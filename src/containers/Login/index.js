@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 import {
   Form,
   Icon,
@@ -21,6 +22,12 @@ class Login extends Component {
     super();
     this.handleSubmit = this.handleSubmit.bind( this );
     this.renderAlert  = this.renderAlert.bind( this );
+  }
+
+  componentWillMount () {
+    if ( this.props.user ) {
+      browserHistory.push( '/' );
+    }
   }
 
   handleSubmit ( e ) {
@@ -83,6 +90,7 @@ class Login extends Component {
 
 function mapStateToProps ( state ) {
   return {
+    user        : state.get( 'app' ).get( 'user' ),
     loginSubmit : state.get( 'login' ).get( 'loginSubmit' ),
     loginError  : state.get( 'login' ).get( 'loginError' )
   }

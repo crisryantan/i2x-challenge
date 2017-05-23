@@ -1,0 +1,1 @@
+export const AUTH_USER = 'containers/App/AUTH_USER';
