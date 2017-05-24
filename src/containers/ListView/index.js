@@ -1,21 +1,14 @@
 import _ from 'lodash';
-import moment from 'moment';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getList } from './actions';
 import {
-  Card,
-  Col,
-  Row,
-  Spin,
-  Menu,
-  Icon
+  Spin
 } from 'antd';
 
+import Header from '../../components/header';
+import Item from '../../components/item';
+import { getList } from './actions';
 import './index.css';
-
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 
 class ListView extends Component {
   componentWillMount () {
@@ -24,7 +17,7 @@ class ListView extends Component {
 
   displayLists () {
     const { fetching, lists } = this.props
-    console.log( lists )
+
     if ( fetching ) {
       return (
         <div className="spinner">
@@ -36,12 +29,7 @@ class ListView extends Component {
     if ( lists.length ) {
       return (
         <div>
-          <Menu
-            mode="horizontal">
-            <SubMenu title={<span><Icon type="setting" />Options</span>}>
-              <MenuItemGroup title="Logout" />
-            </SubMenu>
-          </Menu>
+          <Header />
           <div style={{ padding: '50px' }}>
             { _.map( lists, this.renderItem ) }
           </div>
@@ -52,27 +40,8 @@ class ListView extends Component {
   }
 
   renderItem ( item ) {
-    const dateCreated = moment( item.created ).format( 'MM/DD/YYYY hh:mm A' );
-    const minutes     = Math.floor( item.duration / 60 );
     return (
-      <Row key={item.url} style={{ marginBottom : '20px' }}>
-        <Col>
-          <Card title={ item.rating }>
-            <p>
-              { item.url }
-            </p>
-            <p>
-              { minutes } minutes
-            </p>
-            <p>
-              { dateCreated } date
-            </p>
-            <p>
-              {item.final_script}
-            </p>
-          </Card>
-        </Col>
-      </Row>
+      <Item key={item.url} item={item} />
     )
   }
 
