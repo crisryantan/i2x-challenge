@@ -12,7 +12,7 @@ const initialState = fromJS( {
   error    : false
 } );
 
-function LoginReducer ( state = initialState, action ) {
+function ListViewReducer ( state = initialState, action ) {
   switch ( action.type ) {
     case GET_LIST :
       return state
@@ -36,4 +36,4 @@ function LoginReducer ( state = initialState, action ) {
   }
 }
 
-export default LoginReducer;
+export default ListViewReducer;

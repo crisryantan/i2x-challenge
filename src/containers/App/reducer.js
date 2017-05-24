@@ -15,7 +15,7 @@ function AppReducer ( state = initialState, action ) {
         } );
     case UNAUTH_USER :
       return state
-        .set( 'user', null);
+        .set( 'user', null );
     default:
       return state;
   }
