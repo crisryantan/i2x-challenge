@@ -7,6 +7,7 @@ import {
 
 import Header from '../../components/header';
 import Item from '../../components/item';
+import { unAuthUser } from '../App/actions';
 import { getList } from './actions';
 import './index.css';
 
@@ -16,7 +17,7 @@ class ListView extends Component {
   }
 
   displayLists () {
-    const { fetching, lists } = this.props
+    const { fetching, lists, unAuthUser } = this.props
 
     if ( fetching ) {
       return (
@@ -29,7 +30,7 @@ class ListView extends Component {
     if ( lists.length ) {
       return (
         <div>
-          <Header />
+          <Header unAuthUser={unAuthUser} />
           <div style={{ padding: '50px' }}>
             { _.map( lists, this.renderItem ) }
           </div>
@@ -64,7 +65,8 @@ function mapStateToProps ( state ) {
 
 function mapDispatchToProps ( dispatch ) {
   return {
-    getList : () => dispatch( getList() )
+    getList    : () => dispatch( getList() ),
+    unAuthUser : () => dispatch( unAuthUser() )
   };
 }
 

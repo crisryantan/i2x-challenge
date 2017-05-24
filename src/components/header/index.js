@@ -6,15 +6,20 @@ import {
 } from 'antd';
 
 const SubMenu       = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 
 class Header extends Component {
+
+  handleClick () {
+    console.log('hi')
+  }
+
   render() {
     return (
       <Menu
+        onClick={this.props.unAuthUser}
         mode="horizontal">
         <SubMenu title={<span><Icon type="setting" />Options</span>}>
-          <MenuItemGroup title="Logout" />
+             <Menu.Item key="setting:1">Logout</Menu.Item>
         </SubMenu>
       </Menu>
     );

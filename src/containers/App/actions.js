@@ -12,8 +12,9 @@ export function authUser () {
 }
 
 export function unAuthUser () {
- localStorage.removeItem( 'token' );
+  setAuthorizationToken();
+  localStorage.removeItem( 'token' );
   return {
     type : UNAUTH_USER
-  };
+   };
 }
