@@ -3,6 +3,7 @@ import { browserHistory } from 'react-router';
 import { authUser } from '../App/actions';
 import {
   LOGIN_SUBMIT,
+  LOGIN_SUCCESS,
   LOGIN_ERROR
 } from './constants';
 
@@ -13,6 +14,7 @@ export function loginUser ( user ) {
     dispatch( { type : LOGIN_SUBMIT } );
     return postRequest( loginApi, user )
       .then( ( { token } ) => {
+          dispatch( { type : LOGIN_SUCCESS } );
           localStorage.setItem( 'token', token );
           dispatch( authUser() );
           browserHistory.push( '/' );

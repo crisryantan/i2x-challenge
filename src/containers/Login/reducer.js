@@ -3,6 +3,7 @@ import { fromJS } from 'immutable';
 
 import {
   LOGIN_SUBMIT,
+  LOGIN_SUCCESS,
   LOGIN_ERROR
 } from './constants';
 
@@ -16,6 +17,11 @@ function LoginReducer ( state = initialState, action ) {
     case LOGIN_SUBMIT :
       return state
         .set( 'loginSubmit', true )
+        .set( 'loginError', false );
+
+    case LOGIN_SUCCESS :
+      return state
+        .set( 'loginSubmit', false )
         .set( 'loginError', false );
 
     case LOGIN_ERROR :
