@@ -7,7 +7,7 @@ import {
   LOGIN_ERROR
 } from './constants';
 
-const loginApi = 'https://i2x-challenge.herokuapp.com/core/login/';
+const loginApi = '/core/login/';
 
 export function loginUser ( user ) {
   return dispatch => {

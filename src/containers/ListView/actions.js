@@ -5,7 +5,7 @@ import {
   GET_LIST_FAIL
 } from './constants';
 
-const apiUrl = 'https://i2x-challenge.herokuapp.com/ai/recording/list/';
+const apiUrl = '/ai/recording/list/';
 
 export function getList () {
   return dispatch => {
