@@ -25,8 +25,7 @@
   - [react](https://facebook.github.io/react/) - awesome view library
   - [react-router](https://github.com/ReactTraining/react-router) - for routing
   - [create-react-app](https://github.com/facebookincubator/create-react-app) - react project generator by facebook this handles the initial file structure and zero configuration
-  - [redux](http://redux.js.org/) - state management library (Moslty because I'm already familiar with it. But is interested in MobX seems fun)
-  - [react-redux](https://github.com/reactjs/react-redux) - to use react with redux
+  - [react-redux](http://redux.js.org/) - state management library. The state of your whole application is stored in an object tree within a single store. 
   - [redux-thunk](https://github.com/reduxjs/redux-thunk) - middleware to handle promises
 
 
